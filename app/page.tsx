@@ -6,6 +6,7 @@ import Link from 'next/link'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CursorWeb from './components/CursorWeb';
+import Navigation from './components/Navigation';
 
 // Add static committee data
 const committees = [
@@ -84,6 +85,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#0A0A0B]">
+      <Navigation />
       <CursorWeb />
       {/* Preloader */}
       <div 
