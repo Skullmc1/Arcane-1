@@ -49,6 +49,35 @@ export default function Home() {
     left: `${Math.round(Math.cos((i * Math.PI) / 3) * 100)}px`
   }));
 
+  // Update the characters array to committees
+  const committees = [
+    {
+      name: "UNSC",
+      image: "/unsc.jpg", // You'll need to add these images to your public folder
+      description: "The United Nations Security Council, responsible for maintaining international peace and security."
+    },
+    {
+      name: "UNHRC",
+      image: "/unhrc.jpg",
+      description: "The United Nations Human Rights Council, promoting and protecting human rights worldwide."
+    },
+    {
+      name: "ECOSOC",
+      image: "/ecosoc.jpg",
+      description: "The Economic and Social Council, coordinating economic, social, and related work of UN agencies."
+    },
+    {
+      name: "DISEC",
+      image: "/disec.jpg",
+      description: "The Disarmament and International Security Committee, dealing with global security and disarmament."
+    },
+    {
+      name: "WHO",
+      image: "/who.jpg",
+      description: "The World Health Organization, directing and coordinating international health within the UN system."
+    }
+  ];
+
   return (
     <div className="bg-[#0A0A0B]">
       <CursorWeb />
@@ -172,31 +201,31 @@ export default function Home() {
               data-aos="fade-down"
               className="text-4xl text-center text-[#bd8cff] mb-12 relative inline-block w-full font-rajdhani tracking-wider"
             >
-              <span className="relative z-10">Featured Characters</span>
+              <span className="relative z-10">Committees</span>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#ae73ff]" />
             </h2>
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-              {characters.map((character, index) => (
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+              {committees.map((committee, index) => (
                 <div 
-                  key={character.name} 
+                  key={committee.name} 
                   data-aos="fade-up"
                   data-aos-delay={200 + index * 100}
                   className="group bg-black/80 p-6 rounded-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-[#bd8cff]/20 border border-[#8831ff]/30"
                 >
-                  <div className="relative w-full aspect-[3/4] mb-4 overflow-hidden rounded-lg">
+                  <div className="relative w-full aspect-square mb-4 overflow-hidden rounded-lg">
                     <Image
-                      src={character.image}
-                      alt={character.name}
+                      src={committee.image}
+                      alt={committee.name}
                       fill
                       className="rounded-lg object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <h3 className="text-2xl text-white mb-2 font-bold font-rajdhani tracking-wide">
-                    {character.name}
+                    {committee.name}
                   </h3>
-                  <p className="text-gray-200 leading-relaxed font-chakra-petch">
-                    {character.description}
+                  <p className="text-gray-200 leading-relaxed font-chakra-petch text-sm">
+                    {committee.description}
                   </p>
                 </div>
               ))}
@@ -207,21 +236,3 @@ export default function Home() {
     </div>
   )
 }
-
-const characters = [
-  {
-    name: "Vi",
-    image: "/vi.jpg",
-    description: "A hotheaded fighter from the undercity with a strong sense of justice."
-  },
-  {
-    name: "Jinx",
-    image: "/jinx.jpg",
-    description: "A manic and unpredictable inventor whose weapons wreak havoc across Piltover."
-  },
-  {
-    name: "Caitlyn",
-    image: "/caitlyn.jpg",
-    description: "A determined investigator and the sheriff of Piltover."
-  }
-]
