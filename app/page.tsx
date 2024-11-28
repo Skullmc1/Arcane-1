@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
-import Link from 'next/link'
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CursorWeb from './components/CursorWeb';
@@ -171,32 +171,7 @@ export default function Home() {
               >
                 Welcome to the world of Piltover and Zaun, where magic, science, and survival collide.
               </p>
-              <Link 
-                href="/watch"
-                data-aos="fade-up"
-                data-aos-delay="600"
-                className="group relative inline-flex items-center px-8 py-3 overflow-hidden"
-              >
-                <span className="absolute inset-0 border-2 border-[#ae73ff] rounded-lg" />
-                <span className="absolute inset-0 bg-[#ae73ff] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200" />
-                <span className="relative text-[#ae73ff] group-hover:text-black text-lg font-semibold transition-colors duration-200 ease-in-out font-chakra-petch">
-                  Watch Now
-                </span>
-                <div className="absolute -inset-1 opacity-70 group-hover:opacity-100 transition-opacity duration-200">
-                  <div className="absolute inset-0 rotate-45">
-                    {[...Array(4)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-2 h-2 border border-[#ae73ff] rounded-full"
-                        style={{
-                          top: `${Math.sin((i * Math.PI) / 2) * 30}px`,
-                          left: `${Math.cos((i * Math.PI) / 2) * 30}px`,
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </Link>
+              
             </div>
           </section>
 

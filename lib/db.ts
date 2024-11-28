@@ -1,8 +1,9 @@
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
+import { Database } from 'sqlite';
 
 // This is a singleton pattern to reuse the database connection
-let db: any = null;
+let db: Database | null = null;
 
 async function getDb() {
   if (!db) {

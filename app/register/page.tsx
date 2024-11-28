@@ -36,7 +36,8 @@ export default function Register() {
         setError('Email already exists');
       }
     } catch (err) {
-      setError('An error occurred during registration');
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+      setError(`An error occurred during registration: ${errorMessage}`);
     } finally {
       setLoading(false);
     }

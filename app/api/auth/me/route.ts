@@ -7,7 +7,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
 export async function GET() {
   try {
-    const headersList = headers();
+    const headersList = new Headers(await headers());
     const token = headersList.get('authorization')?.split(' ')[1];
 
     if (!token) {

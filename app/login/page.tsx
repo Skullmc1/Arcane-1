@@ -27,7 +27,7 @@ export default function Login() {
       } else {
         setError('Invalid credentials');
       }
-    } catch (err) {
+    } catch {
       setError('An error occurred during login');
     } finally {
       setLoading(false);
@@ -77,7 +77,7 @@ export default function Login() {
           </button>
         </form>
         <p className="mt-4 text-center text-[#ae73ff] font-chakra-petch">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href="/register" className="text-[#bd8cff] hover:underline">
             Register
           </Link>
