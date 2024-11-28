@@ -5,8 +5,41 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { motion } from 'framer-motion';
 import CursorWeb from './components/CursorWeb';
+
+// Add static committee data
+const committees = [
+  {
+    id: "1",
+    name: "UNSC",
+    description: "The United Nations Security Council, responsible for maintaining international peace and security.",
+    imageUrl: "/unsc.jpg"
+  },
+  {
+    id: "2",
+    name: "UNHRC",
+    description: "The United Nations Human Rights Council, promoting and protecting human rights worldwide.",
+    imageUrl: "/unhrc.jpg"
+  },
+  {
+    id: "3",
+    name: "ECOSOC",
+    description: "The Economic and Social Council, coordinating economic, social, and related work of UN agencies.",
+    imageUrl: "/ecosoc.jpg"
+  },
+  {
+    id: "4",
+    name: "DISEC",
+    description: "The Disarmament and International Security Committee, dealing with global security and disarmament.",
+    imageUrl: "/disec.jpg"
+  },
+  {
+    id: "5",
+    name: "WHO",
+    description: "The World Health Organization, directing and coordinating international health within the UN system.",
+    imageUrl: "/who.jpg"
+  }
+];
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -48,35 +81,6 @@ export default function Home() {
     top: `${Math.round(Math.sin((i * Math.PI) / 3) * 100)}px`,
     left: `${Math.round(Math.cos((i * Math.PI) / 3) * 100)}px`
   }));
-
-  // Update the characters array to committees
-  const committees = [
-    {
-      name: "UNSC",
-      image: "/unsc.jpg", // You'll need to add these images to your public folder
-      description: "The United Nations Security Council, responsible for maintaining international peace and security."
-    },
-    {
-      name: "UNHRC",
-      image: "/unhrc.jpg",
-      description: "The United Nations Human Rights Council, promoting and protecting human rights worldwide."
-    },
-    {
-      name: "ECOSOC",
-      image: "/ecosoc.jpg",
-      description: "The Economic and Social Council, coordinating economic, social, and related work of UN agencies."
-    },
-    {
-      name: "DISEC",
-      image: "/disec.jpg",
-      description: "The Disarmament and International Security Committee, dealing with global security and disarmament."
-    },
-    {
-      name: "WHO",
-      image: "/who.jpg",
-      description: "The World Health Organization, directing and coordinating international health within the UN system."
-    }
-  ];
 
   return (
     <div className="bg-[#0A0A0B]">
@@ -194,7 +198,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Character Cards Section with Hextech styling */}
+          {/* Committees Section */}
           <section className="py-20 px-4 relative">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#8831ff]/5 to-transparent" />
             <h2 
@@ -205,16 +209,16 @@ export default function Home() {
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#ae73ff]" />
             </h2>
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {committees.map((committee, index) => (
+              {committees.map((committee) => (
                 <div 
-                  key={committee.name} 
+                  key={committee.id} 
                   data-aos="fade-up"
-                  data-aos-delay={200 + index * 100}
+                  data-aos-delay={200}
                   className="group bg-black/80 p-6 rounded-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-[#bd8cff]/20 border border-[#8831ff]/30"
                 >
                   <div className="relative w-full aspect-square mb-4 overflow-hidden rounded-lg">
                     <Image
-                      src={committee.image}
+                      src={committee.imageUrl}
                       alt={committee.name}
                       fill
                       className="rounded-lg object-cover transform group-hover:scale-110 transition-transform duration-500"

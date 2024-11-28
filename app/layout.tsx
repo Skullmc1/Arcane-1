@@ -1,6 +1,5 @@
 import 'aos/dist/aos.css';
 import { Metadata } from 'next';
-import localFont from "next/font/local";
 import "./globals.css";
 import { Rajdhani, Chakra_Petch } from 'next/font/google'
 
