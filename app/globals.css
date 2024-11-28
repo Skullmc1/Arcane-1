@@ -19,7 +19,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-chakra-petch), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,6 +28,9 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -39,4 +42,33 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  .text-glow {
+    text-shadow: 0 0 25px rgba(189,140,255,0.3);
+  }
+}
+
+.slide-up {
+  transform: translateY(-100%);
+}
+
+/* Optional: Add this if you want to make specific elements selectable */
+.selectable {
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
