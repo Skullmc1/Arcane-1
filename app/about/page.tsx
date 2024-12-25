@@ -7,12 +7,10 @@ import CursorWeb from "../components/CursorWeb";
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
     setSuccess(false);
 
     // Simulate form submission
