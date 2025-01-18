@@ -1,47 +1,47 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-chakra-petch), sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-chakra-petch), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
 }
 
 @tailwind base;
@@ -49,26 +49,67 @@ a {
 @tailwind utilities;
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 @layer utilities {
-  .animate-shimmer {
-    animation: shimmer 2s infinite;
-  }
-  .text-glow {
-    text-shadow: 0 0 25px rgba(189,140,255,0.3);
-  }
+    .animate-shimmer {
+        animation: shimmer 2s infinite;
+    }
+    .text-glow {
+        text-shadow: 0 0 25px rgba(189, 140, 255, 0.3);
+    }
 }
 
 .slide-up {
-  transform: translateY(-100%);
+    transform: translateY(-100%);
 }
 
 /* Optional: Add this if you want to make specific elements selectable */
 .selectable {
-  -webkit-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease-in-out forwards;
+}
+/* Hexagon Clip Path */
+.clip-hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Spin Animation for Hexagons */
+@keyframes spin-hexagon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animation delays */
+[data-animate] {
+    animation-delay: var(--delay, 0s);
 }
