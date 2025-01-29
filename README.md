@@ -1,1 +1,1 @@
-for some reson, we're creating one for arcane :/
+## Arcane themed website for MUN
